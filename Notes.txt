@@ -1,0 +1,2 @@
+in FoodData you can see the add method where it clamps the value to 20, the tick method where it compares the level to 20 (i don't know if this one needs to be changed actually), and the needsFood that compares it to 20
+you'll also need to cope with the player reference being missing [i'd suggest a method in the mixin that returns 20 if the entity field you add is null, otherwise returns the attribute value]
