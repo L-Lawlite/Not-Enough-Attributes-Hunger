@@ -4,11 +4,15 @@ package net.test.testmod.mixin;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
+import net.test.testmod.TestMod;
 import net.test.testmod.TestModAttributes;
+import net.test.testmod.TestModGameRules;
 import net.test.testmod.iterface.duck.FoodDataDuck;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+
+import java.util.Objects;
 
 @Mixin(FoodData.class)
 public class FoodDataMixin implements FoodDataDuck {
@@ -52,7 +56,8 @@ public class FoodDataMixin implements FoodDataDuck {
 
     @ModifyExpressionValue(method = "tick", at = @At(value = "CONSTANT", args = "intValue=18"))
     private int modifyMaxHungerHealValue(int value) {
-        return (int) (testmod$getMaxHungerAttributeValue(value) * 0.9);
+        float percentageHealing = Objects.requireNonNull(testmod$player.getServer()).getGameRules().getInt(TestModGameRules.RULE_HUNGER_HEALING_PERCENTAGE) / 100F;
+        return (int) (testmod$getMaxHungerAttributeValue(value) * percentageHealing);
     }
 
     @ModifyExpressionValue(method = "add", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Mth;clamp(FFF)F"))

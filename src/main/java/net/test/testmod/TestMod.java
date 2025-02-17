@@ -1,5 +1,6 @@
 package net.test.testmod;
 
+import net.minecraft.world.level.GameRules;
 import net.neoforged.neoforge.registries.*;
 import org.slf4j.Logger;
 
