@@ -14,5 +14,6 @@ public class ModEvents {
     @SubscribeEvent
     public static void addAttribute(EntityAttributeModificationEvent event) {
         event.add(EntityType.PLAYER, TestModAttributes.MAX_HUNGER,20.0D);
+        event.add(EntityType.PLAYER, TestModAttributes.MAX_SATURATION,20.0D);
     }
 }

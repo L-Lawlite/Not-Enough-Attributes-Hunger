@@ -1,3 +1,4 @@
 {
-  "attribute.name.max_hunger": "Max Hunger"
+  "attribute.name.max_hunger": "Max Hunger",
+  "attribute.name.max_saturation": "Max Saturation"
 }
