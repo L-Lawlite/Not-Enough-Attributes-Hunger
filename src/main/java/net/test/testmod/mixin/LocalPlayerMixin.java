@@ -14,8 +14,8 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(LocalPlayer.class)
 public class LocalPlayerMixin {
 
-    @Unique
-    private static final Logger testmod$LOGGER = LogUtils.getLogger();
+//    @Unique
+//    private static final Logger testmod$LOGGER = LogUtils.getLogger();
 
 
     @ModifyExpressionValue(method = "hasEnoughFoodToStartSprinting", at = @At(value = "CONSTANT", args = "floatValue=6.0F"))
@@ -23,7 +23,7 @@ public class LocalPlayerMixin {
 
         int hungerSprintValue = ClientPacketListner.hungerSprintValue;
         int max_hunger_value = (int) ((Player) ((Object) this)).getAttributeValue(TestModAttributes.MAX_HUNGER);
-        testmod$LOGGER.info("game_rule = {} , max_hunger_value = {}",hungerSprintValue,max_hunger_value);
+//        testmod$LOGGER.info("game_rule = {} , max_hunger_value = {}",hungerSprintValue,max_hunger_value);
         return (float) Math.min(max_hunger_value - 1,hungerSprintValue);
     }
 }
