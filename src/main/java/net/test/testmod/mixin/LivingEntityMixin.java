@@ -15,7 +15,7 @@ public class LivingEntityMixin {
 
     @Inject(method = "onAttributeUpdated", at = @At("TAIL"))
     private void onPlayerAttributeUpdate(Holder<Attribute> attribute, CallbackInfo ci) {
-        if ((LivingEntity) ((Object) this) instanceof Player player) {
+        if (((Object) this) instanceof Player player) {
             if(attribute.is(TestModAttributes.MAX_HUNGER) || attribute.is(TestModAttributes.MAX_SATURATION)) {
                 player.getFoodData().eat(0,0);
             }
