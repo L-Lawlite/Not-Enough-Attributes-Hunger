@@ -11,7 +11,6 @@ import net.lawliet.nea_hunger.clientServerSync.PlayerSyncPacket;
 
 @EventBusSubscriber(modid = NeaHunger.MODID,bus = EventBusSubscriber.Bus.MOD)
 public class NeaHungerGameRules {
-    //Defining game rules
     public static GameRules.Key<GameRules.IntegerValue> RULE_HUNGER_HEALING_PERCENTAGE;
     public static GameRules.Key<GameRules.IntegerValue> RULE_HUNGER_SPRINT_VALUE;
 
@@ -20,7 +19,6 @@ public class NeaHungerGameRules {
      RULE_HUNGER_HEALING_PERCENTAGE = GameRules.register("hungerHealingPercentage",GameRules.Category.PLAYER, GameRules.IntegerValue.create(90));
      RULE_HUNGER_SPRINT_VALUE = GameRules.register("hungerSprintValue",GameRules.Category.PLAYER,GameRules.IntegerValue.create(6, (player,value) -> {
          for(ServerPlayer serverPlayer : player.getPlayerList().getPlayers()) {
-//             serverPlayer.connection.send(new PlayerSyncPacket(value.get()));
              PacketDistributor.sendToPlayer(serverPlayer,new PlayerSyncPacket(value.get()));
          }
      }));
