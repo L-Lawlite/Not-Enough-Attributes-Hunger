@@ -10,6 +10,7 @@ import net.lawliet.nea_hunger.NeaHungerAttributes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 
 //@Debug(export = true)
@@ -21,6 +22,8 @@ public abstract class GuiMixin {
 
     @Shadow
     protected abstract Player getCameraPlayer();
+
+    @Shadow public int rightHeight;
 
     // To modify the for loop
     @ModifyExpressionValue(method = "renderFood", at = @At(value = "CONSTANT", args = "intValue=10"))
@@ -48,14 +51,13 @@ public abstract class GuiMixin {
         return x - (j % 10) * 8 - 9;
     }
 
-    //
-    @ModifyExpressionValue(method = "renderFoodLevel", at = @At(value = "CONSTANT", args = "intValue=10"))
-    private int modifyHeightForAirLevel(int original) {
+    @Inject(method = "renderFoodLevel", at = @At("TAIL"))
+    private void modifyHeightForAirLevel(GuiGraphics p_283143_, CallbackInfo ci) {
         Player player = this.getCameraPlayer();
         int food_attribute_value = (int) player.getAttributeValue(NeaHungerAttributes.MAX_HUNGER);
         int max_rows = Mth.ceil(food_attribute_value / 2.0F / 10.0F);
         int height = Math.max(10 - (max_rows - 2), 3);
-        return (max_rows - 1) * height + original;
+        this.rightHeight += (max_rows - 1) * height;
     }
 
 
