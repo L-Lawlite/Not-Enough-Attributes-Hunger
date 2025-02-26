@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "net.test.testmod.mixin",
+  "package": "net.lawliet.nea_hunger.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "FoodDataMixin",

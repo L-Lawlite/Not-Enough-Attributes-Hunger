@@ -1,4 +1,4 @@
-package net.test.testmod.events;
+package net.lawliet.nea_hunger.events;
 
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -8,20 +8,20 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.HandlerThread;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
-import net.test.testmod.TestMod;
-import net.test.testmod.TestModAttributes;
-import net.test.testmod.clientServerSync.ClientPacketListner;
-import net.test.testmod.clientServerSync.PlayerSyncPacket;
-import net.test.testmod.clientServerSync.ServerPacketListner;
+import net.lawliet.nea_hunger.NeaHunger;
+import net.lawliet.nea_hunger.NeaHungerAttributes;
+import net.lawliet.nea_hunger.clientServerSync.ClientPacketListner;
+import net.lawliet.nea_hunger.clientServerSync.PlayerSyncPacket;
+import net.lawliet.nea_hunger.clientServerSync.ServerPacketListner;
 
 
-@EventBusSubscriber(modid = TestMod.MODID,bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = NeaHunger.MODID,bus = EventBusSubscriber.Bus.MOD)
 public class ModEvents {
 
     @SubscribeEvent
     public static void addAttribute(EntityAttributeModificationEvent event) {
-        event.add(EntityType.PLAYER, TestModAttributes.MAX_HUNGER,20.0D);
-        event.add(EntityType.PLAYER, TestModAttributes.MAX_SATURATION,20.0D);
+        event.add(EntityType.PLAYER, NeaHungerAttributes.MAX_HUNGER,20.0D);
+        event.add(EntityType.PLAYER, NeaHungerAttributes.MAX_SATURATION,20.0D);
     }
 
     @SubscribeEvent

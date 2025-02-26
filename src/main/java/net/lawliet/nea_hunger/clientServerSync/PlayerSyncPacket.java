@@ -1,15 +1,15 @@
-package net.test.testmod.clientServerSync;
+package net.lawliet.nea_hunger.clientServerSync;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
-import net.test.testmod.TestMod;
+import net.lawliet.nea_hunger.NeaHunger;
 
 public record PlayerSyncPacket(int hungerSprintValue) implements CustomPacketPayload {
 
-    public static final CustomPacketPayload.Type<PlayerSyncPacket> TYPE = new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(TestMod.MODID, "effective_food_value"));
+    public static final CustomPacketPayload.Type<PlayerSyncPacket> TYPE = new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(NeaHunger.MODID, "effective_food_value"));
 
     public static final StreamCodec<ByteBuf, PlayerSyncPacket> STREAM_CODEC = StreamCodec.composite(
             ByteBufCodecs.VAR_INT,

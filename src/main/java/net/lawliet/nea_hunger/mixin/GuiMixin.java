@@ -1,18 +1,14 @@
-package net.test.testmod.mixin;
+package net.lawliet.nea_hunger.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
-import net.test.testmod.TestModAttributes;
-import org.slf4j.Logger;
-import org.spongepowered.asm.mixin.Debug;
+import net.lawliet.nea_hunger.NeaHungerAttributes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
 
 
@@ -21,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.*;
 public abstract class GuiMixin {
 
 //    @Unique
-//    private static final Logger testmod$LOGGER = LogUtils.getLogger();
+//    private static final Logger nea_hunger$LOGGER = LogUtils.getLogger();
 
     @Shadow
     protected abstract Player getCameraPlayer();
@@ -29,7 +25,7 @@ public abstract class GuiMixin {
     // To modify the for loop
     @ModifyExpressionValue(method = "renderFood", at = @At(value = "CONSTANT", args = "intValue=10"))
     private int modifyFoodLevelForDisplay(int original_value, GuiGraphics guiGraphics, Player player, int y, int x) {
-        double food_attribute_value = player.getAttributeValue(TestModAttributes.MAX_HUNGER);
+        double food_attribute_value = player.getAttributeValue(NeaHungerAttributes.MAX_HUNGER);
         return (int) (food_attribute_value / 2);
     }
 
@@ -38,7 +34,7 @@ public abstract class GuiMixin {
     // Need to check this as ordinal number can change
     @ModifyVariable(method = "renderFood", at = @At("STORE"), ordinal = 4)
     private int modifySpriteHeightArg(int original_value,GuiGraphics guiGraphics, Player player, int y, int x, @Local(ordinal = 3) int j) {
-        int food_attribute_value = (int) player.getAttributeValue(TestModAttributes.MAX_HUNGER);
+        int food_attribute_value = (int) player.getAttributeValue(NeaHungerAttributes.MAX_HUNGER);
         int max_rows = Mth.ceil(food_attribute_value / 2.0F / 10.0F);
         int height = Math.max(10 - (max_rows - 2), 3);
         int num_row = j / 10;
@@ -56,7 +52,7 @@ public abstract class GuiMixin {
     @ModifyExpressionValue(method = "renderFoodLevel", at = @At(value = "CONSTANT", args = "intValue=10"))
     private int modifyHeightForAirLevel(int original) {
         Player player = this.getCameraPlayer();
-        int food_attribute_value = (int) player.getAttributeValue(TestModAttributes.MAX_HUNGER);
+        int food_attribute_value = (int) player.getAttributeValue(NeaHungerAttributes.MAX_HUNGER);
         int max_rows = Mth.ceil(food_attribute_value / 2.0F / 10.0F);
         int height = Math.max(10 - (max_rows - 2), 3);
         return (max_rows - 1) * height + original;

@@ -1,4 +1,4 @@
-package net.test.testmod;
+package net.lawliet.nea_hunger;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -6,9 +6,9 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import static net.test.testmod.TestMod.MODID;
+import static net.lawliet.nea_hunger.NeaHunger.MODID;
 
-public class TestModAttributes {
+public class NeaHungerAttributes {
     public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(Registries.ATTRIBUTE,MODID);
 
     // Creating a new attribute for max hunger bar

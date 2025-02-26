@@ -1,4 +1,4 @@
-package net.test.testmod;
+package net.lawliet.nea_hunger;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.GameRules;
@@ -6,11 +6,11 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
-import net.test.testmod.clientServerSync.PlayerSyncPacket;
+import net.lawliet.nea_hunger.clientServerSync.PlayerSyncPacket;
 
 
-@EventBusSubscriber(modid = TestMod.MODID,bus = EventBusSubscriber.Bus.MOD)
-public class TestModGameRules {
+@EventBusSubscriber(modid = NeaHunger.MODID,bus = EventBusSubscriber.Bus.MOD)
+public class NeaHungerGameRules {
     //Defining game rules
     public static GameRules.Key<GameRules.IntegerValue> RULE_HUNGER_HEALING_PERCENTAGE;
     public static GameRules.Key<GameRules.IntegerValue> RULE_HUNGER_SPRINT_VALUE;

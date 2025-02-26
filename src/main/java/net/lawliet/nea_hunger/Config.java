@@ -1,4 +1,4 @@
-package net.test.testmod;
+package net.lawliet.nea_hunger;
 
 import java.util.List;
 import java.util.Set;
@@ -11,11 +11,11 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
-import net.test.testmod.configEnum.FoodRenderTypes;
+import net.lawliet.nea_hunger.configEnum.FoodRenderTypes;
 
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
 // Demonstrates how to use Neo's config APIs
-@EventBusSubscriber(modid = TestMod.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = NeaHunger.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class Config
 {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();

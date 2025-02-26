@@ -20,13 +20,13 @@ license="MIT"
 [[mods]] #mandatory
 
 # The modid of the mod
-modId="testmod" #mandatory
+modId="nea_hunger" #mandatory
 
 # The version number of the mod
 version="1.0.0" #mandatory
 
 # A display name for the mod
-displayName="Test Mod" #mandatory
+displayName="Not Enough Attributes: Hunger" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
@@ -44,11 +44,13 @@ displayName="Test Mod" #mandatory
 authors="Lawliet" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
-description='''Test Mod'''
+description='''Adds Hunger and Saturation Attribute
+Adds 2 gamerules that control
+'''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
 [[mixins]]
-config="testmod.mixins.json"
+config="nea_hunger.mixins.json"
 
 # The [[accessTransformers]] block allows you to declare where your AT file is.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
@@ -58,7 +60,7 @@ config="testmod.mixins.json"
 # The coremods config file path is not configurable and is always loaded from META-INF/coremods.json
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.testmod]] #optional
+[[dependencies.nea_hunger]] #optional
     # the modid of the dependency
     modId="neoforge" #mandatory
     # The type of the dependency. Can be one of "required", "optional", "incompatible" or "discouraged" (case insensitive).
@@ -77,7 +79,7 @@ config="testmod.mixins.json"
     side="BOTH"
 
 # Here's another dependency
-[[dependencies.testmod]]
+[[dependencies.nea_hunger]]
     modId="minecraft"
     type="required"
     # This version range declares a minimum of the current minecraft version up to but not including the next major version
@@ -88,5 +90,5 @@ config="testmod.mixins.json"
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
 # stop your mod loading on the server for example.
-#[features.testmod]
+#[features.nea_hunger]
 #openGLVersion="[3.2,)"

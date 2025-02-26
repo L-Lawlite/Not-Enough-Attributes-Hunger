@@ -1,4 +1,4 @@
-package net.test.testmod.clientServerSync;
+package net.lawliet.nea_hunger.clientServerSync;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 

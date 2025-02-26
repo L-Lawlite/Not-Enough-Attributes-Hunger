@@ -1,4 +1,4 @@
-package net.test.testmod.configEnum;
+package net.lawliet.nea_hunger.configEnum;
 
 public enum FoodRenderTypes {
     VANILLA,
