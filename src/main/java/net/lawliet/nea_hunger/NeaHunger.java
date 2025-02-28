@@ -1,5 +1,6 @@
 package net.lawliet.nea_hunger;
 
+import net.neoforged.fml.ModList;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -33,7 +34,7 @@ public class NeaHunger
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public NeaHunger(IEventBus modEventBus, ModContainer modContainer)
     {
-        // Register the commonSetup method for modloading
+        // Register the commonSetup method for mod loading
         modEventBus.addListener(this::commonSetup);
 
 
@@ -76,6 +77,10 @@ public class NeaHunger
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            if (ModList.get().isLoaded("appleskin")) {
+                LOGGER.info("Apple skin Loaded");
+//                NeoForge.EVENT_BUS.register(new AppleSkinEventHandler());
+            }
         }
     }
 }
