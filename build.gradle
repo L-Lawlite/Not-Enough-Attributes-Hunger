@@ -134,8 +134,9 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    compileOnly implementation("squeek.appleskin:appleskin-neoforge:mc1.21.3-3.0.6:api")
-    runtimeOnly implementation("squeek.appleskin:appleskin-neoforge:mc1.21.3-3.0.6")
+    compileOnly implementation("squeek.appleskin:appleskin-neoforge:${appleskin_version}:api")
+    runtimeOnly implementation("squeek.appleskin:appleskin-neoforge:${appleskin_version}")
+
 
 }
 
