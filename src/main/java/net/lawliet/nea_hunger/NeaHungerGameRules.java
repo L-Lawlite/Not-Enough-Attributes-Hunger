@@ -9,7 +9,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.lawliet.nea_hunger.clientServerSync.PlayerSyncPacket;
 
 
-@EventBusSubscriber(modid = NeaHunger.MODID,bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = NeaHunger.MODID)
 public class NeaHungerGameRules {
     public static GameRules.Key<GameRules.IntegerValue> RULE_HUNGER_HEALING_PERCENTAGE;
     public static GameRules.Key<GameRules.IntegerValue> RULE_HUNGER_SPRINT_VALUE;
