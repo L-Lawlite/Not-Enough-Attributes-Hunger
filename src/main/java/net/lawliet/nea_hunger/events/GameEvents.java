@@ -4,7 +4,6 @@ import net.lawliet.nea_hunger.NeaHunger;
 import net.lawliet.nea_hunger.NeaHungerAttributes;
 import net.lawliet.nea_hunger.NeaHungerGameRules;
 import net.lawliet.nea_hunger.clientServerSync.ClientPacketListner;
-import net.lawliet.nea_hunger.clientServerSync.ServerPacketListner;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -14,7 +13,6 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.lawliet.nea_hunger.clientServerSync.PlayerSyncPacket;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
-import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.HandlerThread;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
@@ -42,10 +40,7 @@ public class GameEvents {
         registrar.playToClient(
                 PlayerSyncPacket.TYPE,
                 PlayerSyncPacket.STREAM_CODEC,
-                new DirectionalPayloadHandler<>(
-                        ClientPacketListner::handleDataOnNetwork,
-                        ServerPacketListner::handleDataOnNetwork
-                )
+                ClientPacketListner::handleDataOnNetwork
         );
     }
 }

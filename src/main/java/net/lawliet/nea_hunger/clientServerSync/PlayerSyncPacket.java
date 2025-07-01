@@ -6,6 +6,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.lawliet.nea_hunger.NeaHunger;
+import org.jetbrains.annotations.NotNull;
 
 public record PlayerSyncPacket(int hungerSprintValue) implements CustomPacketPayload {
 
@@ -19,6 +20,7 @@ public record PlayerSyncPacket(int hungerSprintValue) implements CustomPacketPay
 
 
     @Override
+    @NotNull
     public CustomPacketPayload.Type<? extends CustomPacketPayload> type() {
         return TYPE;
     }
