@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.mojang.authlib.GameProfile;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.lawliet.nea_hunger.NeaHungerAttributes;
@@ -16,8 +17,8 @@ import org.spongepowered.asm.mixin.injection.At;
 //@Debug(export = true)
 @Mixin(LocalPlayer.class)
 public abstract class LocalPlayerMixin extends Player{
-    public LocalPlayerMixin(Level p_250508_, GameProfile p_252153_) {
-        super(p_250508_, p_252153_);
+    public LocalPlayerMixin(Level level, BlockPos pos, float yRot, GameProfile gameProfile) {
+        super(level, pos, yRot, gameProfile);
     }
 
 
