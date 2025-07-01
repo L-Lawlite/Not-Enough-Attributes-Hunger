@@ -21,10 +21,12 @@ public abstract class LocalPlayerMixin extends Player{
         super(level, pos, yRot, gameProfile);
     }
 
+
     @Unique
     private static final Logger nea_hunger$LOGGER = LogUtils.getLogger();
 
-    @ModifyExpressionValue(method = "hasEnoughFoodToStartSprinting", at = @At(value = "CONSTANT", args = "floatValue=6.0F"))
+
+    @ModifyExpressionValue(method = "hasEnoughFoodToSprint", at = @At(value = "CONSTANT", args = "floatValue=6.0F"))
     private float changeFoodValueOnSprint(float original_value) {
 
         int hungerSprintValue = ClientPacketListner.hungerSprintValue;
