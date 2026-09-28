@@ -131,8 +131,8 @@ dependencies {
     // implementation project(":myproject")
 
     // Apple Skin mod
-    compileOnly implementation("squeek.appleskin:appleskin-neoforge:${apple_skin_version}:api")
-    runtimeOnly implementation("squeek.appleskin:appleskin-neoforge:${apple_skin_version}")
+//    compileOnly implementation("squeek.appleskin:appleskin-neoforge:${apple_skin_version}:api")
+//    runtimeOnly implementation("squeek.appleskin:appleskin-neoforge:${apple_skin_version}")
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

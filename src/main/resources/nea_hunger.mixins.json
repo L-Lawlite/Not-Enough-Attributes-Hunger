@@ -10,7 +10,7 @@
     "PlayerMixin"
   ],
   "client": [
-    "GuiMixin"
+    "HudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

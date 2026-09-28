@@ -7,7 +7,7 @@ import net.lawliet.nea_hunger.clientServerSync.ClientPacketListener;
 import net.lawliet.nea_hunger.clientServerSync.PlayerSyncPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -35,8 +35,8 @@ public class GameEvents {
 
     @SubscribeEvent
     public static void addAttribute(EntityAttributeModificationEvent event) {
-        event.add(EntityType.PLAYER, NeaHungerAttributes.MAX_HUNGER,20.0D);
-        event.add(EntityType.PLAYER, NeaHungerAttributes.MAX_SATURATION,20.0D);
+        event.add(EntityTypes.PLAYER, NeaHungerAttributes.MAX_HUNGER,20.0D);
+        event.add(EntityTypes.PLAYER, NeaHungerAttributes.MAX_SATURATION,20.0D);
     }
 
     @SubscribeEvent

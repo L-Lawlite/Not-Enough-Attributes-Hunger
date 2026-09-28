@@ -5,8 +5,8 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.logging.LogUtils;
 import net.lawliet.nea_hunger.NeaHungerAttributes;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.Hud;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import org.slf4j.Logger;
@@ -19,8 +19,8 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 
-@Mixin(Gui.class)
-public abstract class GuiMixin {
+@Mixin(Hud.class)
+public abstract class HudMixin {
 
     @Unique
     private static final Logger nea_hunger$LOGGER = LogUtils.getLogger();
