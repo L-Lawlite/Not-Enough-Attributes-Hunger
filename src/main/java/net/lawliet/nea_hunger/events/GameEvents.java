@@ -3,7 +3,7 @@ package net.lawliet.nea_hunger.events;
 import net.lawliet.nea_hunger.NeaHunger;
 import net.lawliet.nea_hunger.NeaHungerAttributes;
 import net.lawliet.nea_hunger.NeaHungerGameRules;
-import net.lawliet.nea_hunger.clientServerSync.ClientPacketListner;
+import net.lawliet.nea_hunger.clientServerSync.ClientPacketListener;
 import net.lawliet.nea_hunger.clientServerSync.PlayerSyncPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -45,7 +45,7 @@ public class GameEvents {
         registrar.playToClient(
                 PlayerSyncPacket.TYPE,
                 PlayerSyncPacket.STREAM_CODEC,
-                ClientPacketListner::handleDataOnNetwork
+                ClientPacketListener::handleHungerSprintValue
         );
     }
 }

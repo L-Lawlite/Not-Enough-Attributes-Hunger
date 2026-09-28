@@ -2,11 +2,11 @@ package net.lawliet.nea_hunger.clientServerSync;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public class ClientPacketListner {
+public class ClientPacketListener {
 
     public static int hungerSprintValue;
 
-    public static void handleDataOnNetwork(final PlayerSyncPacket playerSyncPacket, IPayloadContext context) {
+    public static void handleHungerSprintValue(final PlayerSyncPacket playerSyncPacket, IPayloadContext context) {
         hungerSprintValue = playerSyncPacket.hungerSprintValue();
     }
 }

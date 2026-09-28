@@ -3,7 +3,7 @@ package net.lawliet.nea_hunger.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.lawliet.nea_hunger.NeaHungerGameRules;
-import net.lawliet.nea_hunger.clientServerSync.ClientPacketListner;
+import net.lawliet.nea_hunger.clientServerSync.ClientPacketListener;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
@@ -56,7 +56,7 @@ public abstract class FoodDataMixin implements FoodDataDuck {
     @ModifyExpressionValue(method = "hasEnoughFood", at = @At(value = "CONSTANT", args = "floatValue=6.0F"))
     private float changeFoodValueOnSprint(float original_value) {
 
-        int hungerSprintValue = ClientPacketListner.hungerSprintValue;
+        int hungerSprintValue = ClientPacketListener.hungerSprintValue;
         int max_hunger_value = (int) nea_hunger$Player.getAttributeValue(NeaHungerAttributes.MAX_HUNGER);
         return (float) Math.min(max_hunger_value - 1,hungerSprintValue);
 
